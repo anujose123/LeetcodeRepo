@@ -1,0 +1,10 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        int length=nums.length;
+         nums=Arrays.stream(nums).distinct().toArray();
+        if(nums.length==length)
+            return false;
+         else 
+            return true;
+    }
+}
