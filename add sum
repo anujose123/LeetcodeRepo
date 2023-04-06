@@ -1,0 +1,25 @@
+
+class HelloWorld {
+    public static void main(String[] args) {
+      int a[]={1,3,6,8,9};
+      int i=0,j=a.length-1;
+      int sum=7;
+      while(i<=j)
+      {
+          if(a[i]+a[j]>7)
+          j--;
+          if(a[i]+a[j]<7)
+          i++;
+          else if(a[i]+a[j]==7){
+          System.out.println("i"+i+"j"+j);
+              break;
+          }
+          
+      }
+      
+      
+      With this, we can design the following algorithm:
+
+We keep 2 pointers: l, starting at the first element of the array, and r starting at to the last.
+If the sum of a[l] + a[r] is smaller than our target, we increment l by one (to change the smallest operand in the addition for another one equal or larger than it at l+1); if it is larger than the target, we decrease r by one (to change our largest operand for another one equal or smaller at r-1).
+We do this until a[l] + a[r] equals our target or l and r point to the same element (since we cannot use the same element twice) or have crossed, indicating there is no solution.
