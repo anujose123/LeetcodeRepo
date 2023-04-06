@@ -1,0 +1,58 @@
+import java.util.LinkedList;
+import org.w3c.dom.Node;
+
+
+public class linkedlistmiddle {
+
+  static Node head;
+
+
+
+      class Node {
+        int data;
+        Node next;
+        Node(int d)
+        {
+          data = d;
+          next = null;
+        }
+      }
+
+      /* Inserts a new Node at front of the list. */
+      public void push(int new_data)
+      {
+        /* 1 & 2: Allocate the Node &
+                  Put in the data*/
+        Node new_node = new Node(new_data);
+
+        /* 3. Make next of new Node as head */
+        new_node.next = head;
+
+        /* 4. Move the head to point to new Node */
+        head = new_node;
+      }
+  public static void main(String[] args) {
+    linkedlistmiddle llist = new linkedlistmiddle();
+      llist.push(20);
+      llist.push(4);
+      llist.push(15);
+      llist.push(35);
+   llist.push(85);
+   llist.push(100);
+  llist.push(101);
+      Node i=head,j=head;
+      for (i=head;i.next!=null&&j!=null;i=i.next)
+      { j=j.next;
+        if(j==null)
+        {
+
+          break;
+        }
+        j=j.next;
+      }
+
+   System.out.println(i.data);
+
+    }
+  }
+
