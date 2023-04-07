@@ -1,0 +1,51 @@
+public class cycleLinkedList {
+  static Node head;
+
+  class Node{
+    int data;
+    Node next;
+  }
+
+  private Node push1(int data){
+
+    Node newnode=new Node();
+    newnode.data=data;
+    return newnode;
+
+  }
+  public static void main(String[] args) {
+ int flag=0;
+    cycleLinkedList obj= new cycleLinkedList();
+
+    obj.head = obj.push1(1);
+    Node second =obj.push1(2);
+    Node third = obj.push1(3);
+    Node fourth = obj.push1(4);
+
+    // connect each node of linked list to next node
+  obj.head.next = second;
+    second.next = third;
+    third.next = fourth;
+    // make loop in LinkedList
+    fourth.next = null;
+
+    Node i=head,j=head;
+    for (;j!=null && j.next!=null;i=i.next) {
+      j=j.next;
+      if(j==null)
+        break;
+      j=j.next;
+      if(i==j)
+      {
+        flag=1;
+        System.out.println("cycle found");
+        break;
+      }
+    }
+    if(flag==0)
+      System.out.println("cycle  not found");
+    }
+
+
+
+  }
