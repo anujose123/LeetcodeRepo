@@ -1,0 +1,28 @@
+package com.company;
+
+import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+       String Input= "abcdefgabcbbb";
+        int l=0,r=1;
+        String Result="";
+       var s= Input.split("");
+       for(;r<Input.length()-1;r++)
+       {
+           boolean contains;
+           if (!Input.substring(l, r).contains(s[r ])){
+               if(Result.length()<r-l+1)
+               Result=Input.substring(l, r).concat(s[r]);}
+
+           else
+           {
+               l++;
+               r=l;
+           }
+
+       }
+        System.out.println("result"+Result);
+    }
+}
