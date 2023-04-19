@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class permutations {
+    public static void main(String[] args) {
+        String s1 = "bcde";
+        ArrayList sq = new ArrayList<>();
+        extracted(s1, sq);
+        sq.stream().forEach(System.out::println);
+
+    }
+
+    private static void extracted(String s1, ArrayList sq) {
+        int l = 1, ri=1,r = s1.length(), i = 0;
+        while (i < r) {
+//            extracted(s1.substring(l, r), sq);
+            s1 = s1.substring(l, r) + s1.charAt(0);
+            i++;
+            sq.add(s1);
+        extracted(s1, 0, ri,sq);}
+
+
+        }
+
+    private static void extracted(String s1, int l, int ri ,ArrayList sq) {
+        if(ri>s1.length()-2)
+            return;
+        var arr= s1.toCharArray();
+        //  j in all positions call swap
+        var temp= arr[l];
+        arr[l]=arr[ri];
+        arr[ri]=temp;
+         var p= new String(arr);
+        sq.add(p);
+        ri=ri+1;
+        extracted(s1,0,ri,sq);
+    }
+
+}
+
