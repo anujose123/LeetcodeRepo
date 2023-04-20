@@ -18,13 +18,13 @@ public class Twosum {
             s1.put(i, nums[i]);
             int a = s.get(nums[i]);
             if (a == 0) {
-                System.out.println(nums[i]);
+                System.out.println(i);
                 break;
             }
             if (s.containsKey(a)) {
                 int b = s.get(a);
                 if (a + b == target) {
-                    System.out.println(a + "" + nums[i]);
+                    System.out.println(s.get(target-nums[i]) + "" + i);
                     s.put(nums[i], 0);
                 }
 
